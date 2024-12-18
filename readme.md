@@ -7,3 +7,5 @@
 5. github actions
 6. screenshot comparison
 7. AI support?
+8. API test suite
+9. DB test suite
