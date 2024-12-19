@@ -21,7 +21,6 @@ RUN apt-get update && apt-get install -y \
     fonts-dejavu \
     fonts-freefont-ttf \
     system-ui \
-    apple-system \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
