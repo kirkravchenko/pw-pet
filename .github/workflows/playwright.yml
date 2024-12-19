@@ -17,7 +17,6 @@ jobs:
         node-version: '16'
     - name: Build Docker image
       run: docker build -t playwright-pet .
-      
     # Allure results
     # - name: Run tests in Docker
     #   run: docker run --rm -v ${{ github.workspace }}/allure-results:/app/allure-results playwright-pet
