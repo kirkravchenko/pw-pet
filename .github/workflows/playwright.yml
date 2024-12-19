@@ -20,7 +20,9 @@ jobs:
     - name: Run tests in Docker
       run: docker run --rm -v ${{ github.workspace }}/allure-results:/app/allure-results playwright-pet
     - name: Generate Allure Report
-      run: docker run --rm -v ${{ github.workspace }}/allure-results:/app/allure-results -v ${{ github.workspace }}/allure-report:/app/allure-report allure-framework/allure-cli:latest generate /app/allure-results -o /app/allure-report
+      run: allure generate ${{ github.workspace }}/allure-results -o ${{ github.workspace }}/allure-report
+    # - name: Generate Allure Report
+      # run: docker run --rm -v ${{ github.workspace }}/allure-results:/app/allure-results -v ${{ github.workspace }}/allure-report:/app/allure-report allure-framework/allure-cli:latest generate /app/allure-results -o /app/allure-report
     - name: Upload Allure Report
       uses: actions/upload-artifact@v4
       with:
