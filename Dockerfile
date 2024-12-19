@@ -16,5 +16,7 @@ COPY . .
 # Install Playwright dependencies
 RUN npx playwright install
 
+RUN npx playwright install chrome
+
 # Command to run Playwright tests
 CMD ["npx", "playwright", "test"]
