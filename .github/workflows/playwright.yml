@@ -19,6 +19,11 @@ jobs:
       run: docker build -t playwright-pet .
     - name: Run tests in Docker
       run: docker run --rm -v ${{ github.workspace }}/allure-results:/app/allure-results playwright-pet
+    - name: Install Allure CLI
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y openjdk-11-jre
+        npm install -g allure-commandline --save-dev
     - name: Generate Allure Report
       run: allure generate ${{ github.workspace }}/allure-results -o ${{ github.workspace }}/allure-report
     # - name: Generate Allure Report
