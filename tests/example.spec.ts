@@ -14,6 +14,7 @@ test('has title', async ({ page }) => {
   const screenshot = await page.getByRole('link', { 
     name: 'Playwright logo Playwright' 
   }).screenshot();
+  
   test.info().attach('screenshot', {
     body: screenshot,
     contentType: 'image/png',
