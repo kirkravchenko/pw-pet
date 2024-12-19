@@ -20,7 +20,14 @@ RUN apt-get update && apt-get install -y \
     fonts-noto-unhinted \
     fonts-dejavu \
     fonts-freefont-ttf \
-    system-ui \
+    fonts-roboto \
+    fonts-droid-fallback \
+    fonts-ubuntu \
+    fonts-ipafont-gothic \
+    fonts-ipafont-mincho \
+    fonts-unfonts-core \
+    fonts-arphic-uming \
+    fonts-arphic-ukai \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
