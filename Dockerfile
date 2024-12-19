@@ -10,6 +10,19 @@ COPY package.json package-lock.json ./
 # Install dependencies
 RUN npm install
 
+# Install common fonts
+RUN apt-get update && apt-get install -y \
+    fonts-liberation \
+    fonts-noto \
+    fonts-noto-cjk \
+    fonts-noto-color-emoji \
+    fonts-noto-mono \
+    fonts-noto-unhinted \
+    fonts-dejavu \
+    fonts-freefont-ttf \
+    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
 # Copy the rest of the application code
 COPY . .
 
