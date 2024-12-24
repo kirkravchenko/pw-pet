@@ -20,6 +20,7 @@ jobs:
     - name: Run tests in Docker
       run: docker run --rm -v ${{ github.workspace }}/playwright-report:/app/playwright-report playwright-pet
     - name: Upload Playwright Report
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: playwright-report
