@@ -40,5 +40,4 @@ RUN npx playwright install
 RUN npx playwright install chrome
 
 # Command to run Playwright tests
-# CMD ["npx", "playwright", "test"]
-CMD ["sh", "-c", "npx playwright test || exit 1"]
+CMD ["npx", "playwright", "test"]
