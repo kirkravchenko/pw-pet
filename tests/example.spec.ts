@@ -20,7 +20,7 @@ test('has title', async ({ page }) => {
     contentType: 'image/png',
   });
   
-  // await expect(page).toHaveScreenshot();
+  await expect(page).toHaveScreenshot();
 });
 
 // test('get started link', async ({ page }) => {
