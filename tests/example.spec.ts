@@ -19,6 +19,8 @@ test('has title', async ({ page }) => {
     body: screenshot,
     contentType: 'image/png',
   });
+  
+  await expect(page).toHaveScreenshot();
 });
 
 // test('get started link', async ({ page }) => {

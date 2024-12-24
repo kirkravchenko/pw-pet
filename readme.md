@@ -3,11 +3,14 @@
 1. ~~cross-browser~~
 2. ~~cross-device~~
 3. ~~dockerized~~
-4. ~~advanced reporting~~
+4. best practices for data security inside docker
+5. ~~advanced reporting~~
     ~~4.1 attaches images~~
     ~~4.2 attaches video https://playwright.dev/docs/videos~~
-5. ~~github actions~~
-6. screenshot comparison https://playwright.dev/docs/screenshots    https://playwright.dev/docs/test-snapshots
-7. AI support?
-8. API test suite https://playwright.dev/docs/api-testing
-9. DB test suite
+6. ~~github actions~~
+7. ~~screenshot comparison https://playwright.dev/docs/screenshots    https://playwright.dev/docs/test-snapshots~~
+8. AI support?
+9. API test suite https://playwright.dev/docs/api-testing
+10. DB test suite
+
+https://playwright.dev/docs/best-practices
