@@ -13,4 +13,5 @@
 9. API test suite https://playwright.dev/docs/api-testing
 10. DB test suite
 
+
 https://playwright.dev/docs/best-practices
