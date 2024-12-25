@@ -40,4 +40,4 @@ RUN npx playwright install
 RUN npx playwright install chrome
 
 # Command to run Playwright tests
-CMD ["npx", "playwright", "test"]
+CMD ["npx", "playwright", "test", "--update-snapshots"]
