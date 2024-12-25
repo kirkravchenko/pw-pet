@@ -37,10 +37,8 @@ RUN apt-get update && apt-get install -y \
 # Copy the rest of the application code
 COPY . .
 
-# Install Playwright dependencies
-RUN npx playwright install
-
-RUN npx playwright install chrome
+# Install Chrome project
+RUN npx playwright install chrome --with-deps
 
 # Command to run Playwright tests
 CMD ["npx", "playwright", "test"]
