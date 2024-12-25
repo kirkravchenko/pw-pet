@@ -39,6 +39,3 @@ COPY . .
 
 # Install Chrome project
 RUN npx playwright install chrome --with-deps
-
-# Command to run Playwright tests
-CMD ["npx", "playwright", "test"]

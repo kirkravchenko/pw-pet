@@ -6,7 +6,11 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
-
+    inputs:
+      tag:
+        description: 'A set of tests to run'
+        required: true
+        default: '@regression'
 jobs:
   test:
     timeout-minutes: 60
@@ -19,7 +23,7 @@ jobs:
     - name: Build Docker image
       run: docker build -t playwright-pet .
     - name: Run tests in Docker
-      run: docker run --name pw-pet playwright-pet
+      run: docker run --name pw-pet playwright-pet npx playwright test --grep=${{ inputs.tag }}
       continue-on-error: true
     - name: Restart Docker container
       run: docker start pw-pet
