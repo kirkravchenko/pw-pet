@@ -15,6 +15,7 @@
 11. Try live debugging (https://playwright.dev/docs/best-practices#configure-debugging)
 12. try CI debugging (https://playwright.dev/docs/best-practices#debugging-on-ci)
 13. Try sharding and count performance
+14. Use soft assertions
 
 
 https://playwright.dev/docs/best-practices

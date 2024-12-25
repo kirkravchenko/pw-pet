@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import path from 'path';
 
-test('has logo', async ({ page }) => {
+test('@eh has logo', async ({ page }) => {
     await page.goto('https://www.everydayhealth.com/');
 
     const logo = await page.locator('.header__logo a').screenshot();
