@@ -10,6 +10,9 @@ COPY package.json package-lock.json ./
 # Install dependencies
 RUN npm install
 
+# Install latest PW dependency
+RUN npm install -D @playwright/test@latest
+
 # Install common fonts
 RUN apt-get update && apt-get install -y \
     fonts-liberation \
