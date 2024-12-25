@@ -1,4 +1,4 @@
-name: Full test suite
+name: Default
 
 on:
   push:
@@ -11,6 +11,10 @@ on:
         description: 'A set of tests to run'
         required: true
         default: '@regression'
+      exclude_tag:
+        description: 'A set of tests to exclude from running'
+        required: false
+        default: ''
 jobs:
   test:
     timeout-minutes: 60
@@ -23,7 +27,7 @@ jobs:
     - name: Build Docker image
       run: docker build -t playwright-pet .
     - name: Run tests in Docker
-      run: docker run --name pw-pet playwright-pet npx playwright test --grep=${{ inputs.tag }}
+      run: docker run --name pw-pet playwright-pet npx playwright test --grep='${{ inputs.tag }}' --grep-invert='${{ inputs.exclude_tag }}'
       continue-on-error: true
     - name: Restart Docker container
       run: docker start pw-pet
