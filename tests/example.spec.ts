@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('@example has title', async ({ page }) => {
+test('has title', { tag: ['@example', '@regression'] }, async ({ page }) => {
   await page.goto('https://playwright.dev/');
   await expect(page).toHaveTitle(/Playwright/);
 
@@ -25,7 +25,7 @@ test('@example has title', async ({ page }) => {
   });
 });
 
-test('@example get started link', async ({ page }) => {
+test('get started link', { tag: ['@example', '@regression'] }, async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Click the get started link.
