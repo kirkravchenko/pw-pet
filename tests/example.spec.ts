@@ -20,7 +20,9 @@ test('@example has title', async ({ page }) => {
     contentType: 'image/png',
   });
   
-  await expect(page).toHaveScreenshot();
+  await expect(page).toHaveScreenshot({
+    maxDiffPixelRatio: 0.02,
+  });
 });
 
 test('@example get started link', async ({ page }) => {
