@@ -18,7 +18,6 @@ jobs:
     - name: Build Docker image
       run: docker build -t playwright-pet .
     - name: Run tests in Docker
-      # run: docker run --name pw-pet -d -v ${{ github.workspace }}/playwright-report:/app/playwright-report playwright-pet
       run: docker run --name pw-pet playwright-pet
       continue-on-error: true
     - name: Restart Docker container
