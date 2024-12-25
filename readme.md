@@ -12,6 +12,9 @@
 8. AI support?
 9. API test suite https://playwright.dev/docs/api-testing
 10. DB test suite
+11. Try live debugging (https://playwright.dev/docs/best-practices#configure-debugging)
+12. try CI debugging (https://playwright.dev/docs/best-practices#debugging-on-ci)
+13. Try sharding and count performance
 
 
 https://playwright.dev/docs/best-practices
