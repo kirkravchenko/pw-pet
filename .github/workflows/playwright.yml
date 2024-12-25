@@ -18,10 +18,18 @@ jobs:
     - name: Build Docker image
       run: docker build -t playwright-pet .
     - name: Run tests in Docker
-      run: docker run --rm -v ${{ github.workspace }}/playwright-report:/app/playwright-report playwright-pet
+      run: 
+        docker run --rm -v ${{ github.workspace }}/playwright-report:/app/playwright-report playwright-pet
+        docker exec playwright-pet sh -c 'mkdir -p /app/all-snapshots && cp -r /app/tests/*snapshots /app/all-snapshots'
       continue-on-error: true
+    - name: Copy Playwright Screenshots from Docker container
+      run: docker cp playwright-pet:/app/all-snapshots ./screenshots
+    - name: Upload Playwright Screenshots
+      uses: actions/upload-artifact@v4
+      with:
+        name: screenshots
+        path: ./screenshots
     - name: Upload Playwright Report
-      # if: always()
       uses: actions/upload-artifact@v4
       with:
         name: playwright-report
