@@ -29,8 +29,8 @@ jobs:
     - name: Run tests in Docker
       run: docker run --name pw-pet playwright-pet npx playwright test --grep='${{ inputs.tag }}' --grep-invert='${{ inputs.exclude_tag }}'
       continue-on-error: true
-    - name: Restart Docker container
-      run: docker start pw-pet
+    # - name: Restart Docker container
+      # run: docker start pw-pet
     - name: Copy snapshots to a single directory inside the container
       run: docker exec pw-pet sh -c 'mkdir -p /app/all-snapshots && cp -r /app/tests/*snapshots /app/all-snapshots'
       continue-on-error: true
