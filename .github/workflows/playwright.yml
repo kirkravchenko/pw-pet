@@ -19,7 +19,7 @@ jobs:
       run: docker build -t playwright-pet .
     - name: Run tests in Docker
       run: 
-        docker run --rm -v ${{ github.workspace }}/playwright-report:/app/playwright-report playwright-pet
+        docker run -v ${{ github.workspace }}/playwright-report:/app/playwright-report playwright-pet
         docker exec playwright-pet sh -c 'mkdir -p /app/all-snapshots && cp -r /app/tests/*snapshots /app/all-snapshots'
       continue-on-error: true
     - name: Copy Playwright Screenshots from Docker container
@@ -34,3 +34,5 @@ jobs:
       with:
         name: playwright-report
         path: playwright-report/
+    - name: Cleanup
+      run: docker rm playwright-container
