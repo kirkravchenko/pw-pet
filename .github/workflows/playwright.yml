@@ -18,9 +18,9 @@ jobs:
     - name: Build Docker image
       run: docker build -t playwright-pet .
     - name: Run tests in Docker
-      run: 
-        docker run -v ${{ github.workspace }}/playwright-report:/app/playwright-report playwright-pet
-        docker exec playwright-pet sh -c 'mkdir -p /app/all-snapshots && cp -r /app/tests/*snapshots /app/all-snapshots'
+      run: docker run -v ${{ github.workspace }}/playwright-report:/app/playwright-report playwright-pet
+    - name: Copy snapshots to a single directory inside the container
+      run: docker exec playwright-pet sh -c 'mkdir -p /app/all-snapshots && cp -r /app/tests/*snapshots /app/all-snapshots'
       continue-on-error: true
     - name: Copy Playwright Screenshots from Docker container
       run: docker cp playwright-pet:/app/all-snapshots ./screenshots
