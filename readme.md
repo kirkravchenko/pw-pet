@@ -16,6 +16,4 @@
 12. try CI debugging (https://playwright.dev/docs/best-practices#debugging-on-ci)
 13. Try sharding and count performance
 14. Use soft assertions
-
-
-https://playwright.dev/docs/best-practices
+15. try serving report on azure (if for free 😁 - https://playwright.dev/docs/ci-intro#publishing-report-on-the-web)
