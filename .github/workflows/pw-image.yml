@@ -70,7 +70,10 @@ jobs:
       run: sudo docker cp pw-pet:/app/all-snapshots ./screenshots
       continue-on-error: true
     - name: Copy Playwright Report from Docker container
-      run: sudo docker cp pw-pet:/app/playwright-report ./playwright-report
+      run: |
+        sudo docker cp pw-pet:/app/playwright-report ./playwright-report
+        cd ./playwright-report
+        ls
       continue-on-error: true
     - name: Upload Playwright Screenshots
       uses: actions/upload-artifact@v4
