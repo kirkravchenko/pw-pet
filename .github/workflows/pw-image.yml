@@ -27,7 +27,9 @@ jobs:
     - name: Start Playwright container with long-running process
       run: docker run -d --name pw-pet -v ${{ github.workspace }}:/app -w /app mcr.microsoft.com/playwright:v1.49.1-noble tail -f /dev/null
     - name: Install dependencies
-      run: docker exec pw-pet npm install
+      run: |
+        docker exec pw-pet npm install
+        docker exec pw-pet npx playwright install chrome
     - name: Run tests in Docker
       run: |
         if [ -n "${{ inputs.exclude_tag }}" ]; then
