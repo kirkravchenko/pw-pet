@@ -62,8 +62,6 @@ jobs:
       continue-on-error: true
     - name: Create directories for reports and screenshots
       run: |
-        sudo mkdir -p ./playwright-report
-        sudo mkdir -p ./screenshots
         sudo chmod -R 777 ./playwright-report
         sudo chmod -R 777 ./screenshots
     - name: Copy Playwright Screenshots from Docker container
