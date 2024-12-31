@@ -60,6 +60,10 @@ jobs:
     - name: Copy snapshots to a single directory inside the container
       run: docker exec pw-pet sh -c 'mkdir -p /app/all-snapshots && cp -r /app/tests/*snapshots /app/all-snapshots'
       continue-on-error: true
+    - name: Create directories for reports and screenshots
+      run: |
+        sudo mkdir -p ./playwright-report
+        sudo mkdir -p ./screenshots
     - name: Copy Playwright Screenshots from Docker container
       run: docker cp pw-pet:/app/all-snapshots ./screenshots
       continue-on-error: true
