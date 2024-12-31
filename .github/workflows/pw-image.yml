@@ -28,8 +28,6 @@ jobs:
       run: docker run -d --name pw-pet -v ${{ github.workspace }}:/app -w /app mcr.microsoft.com/playwright:v1.49.1-noble tail -f /dev/null
     - name: Install dependencies
       run: |
-        docker exec pw-pet npm install
-        docker exec pw-pet npx playwright install chrome
         docker exec pw-pet apt-get update && apt-get install -y \
           fonts-liberation \
           fonts-noto \
@@ -49,6 +47,8 @@ jobs:
           fonts-arphic-ukai \
           --no-install-recommends && \
           rm -rf /var/lib/apt/lists/*
+        docker exec pw-pet npm install
+        docker exec pw-pet npx playwright install chrome --with-deps
     - name: Run tests in Docker
       run: |
         if [ -n "${{ inputs.exclude_tag }}" ]; then
