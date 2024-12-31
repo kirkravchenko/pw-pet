@@ -62,15 +62,13 @@ jobs:
       continue-on-error: true
     - name: Create directories for reports and screenshots
       run: |
-        sudo mkdir -p ./playwright-report
-        sudo mkdir -p ./screenshots
-        sudo chmod 777 ./playwright-report
-        sudo chmod 777 ./screenshots
+        sudo chmod -R 777 ./playwright-report
+        sudo chmod -R 777 ./screenshots
     - name: Copy Playwright Screenshots from Docker container
-      run: docker cp pw-pet:/app/all-snapshots ./screenshots
+      run: sudo docker cp pw-pet:/app/all-snapshots ./screenshots
       continue-on-error: true
     - name: Copy Playwright Report from Docker container
-      run: docker cp pw-pet:/app/playwright-report ./playwright-report
+      run: sudo docker cp pw-pet:/app/playwright-report ./playwright-report
       continue-on-error: true
     - name: Upload Playwright Screenshots
       uses: actions/upload-artifact@v4
