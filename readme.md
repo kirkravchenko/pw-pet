@@ -17,3 +17,5 @@
 13. Try sharding and count performance
 14. Use soft assertions
 15. try serving report on azure (if for free 😁 - https://playwright.dev/docs/ci-intro#publishing-report-on-the-web)
+16. use Kubernetes for scaling containers for parallel execution. How many workers can effectively operate per 1 container? 🤔
+17. is it possible to not build our own image but rely solely on playwright image?
