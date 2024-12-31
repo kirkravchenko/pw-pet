@@ -52,9 +52,9 @@ jobs:
     - name: Run tests in Docker
       run: |
         if [ -n "${{ inputs.exclude_tag }}" ]; then
-          docker exec pw-pet npx playwright test --grep="${{ inputs.tag }}" --grep-invert="${{ inputs.exclude_tag }}" --update-snapshots
+          docker exec pw-pet npx playwright test --grep="${{ inputs.tag }}" --grep-invert="${{ inputs.exclude_tag }}"
         else
-          docker exec pw-pet npx playwright test --grep="${{ inputs.tag }}" --update-snapshots
+          docker exec pw-pet npx playwright test --grep="${{ inputs.tag }}"
         fi
       continue-on-error: true
     - name: Copy snapshots to a single directory inside the container
