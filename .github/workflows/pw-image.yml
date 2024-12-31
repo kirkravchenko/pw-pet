@@ -60,18 +60,9 @@ jobs:
     - name: Copy snapshots to a single directory inside the container
       run: docker exec pw-pet sh -c 'mkdir -p /app/all-snapshots && cp -r /app/tests/*snapshots /app/all-snapshots'
       continue-on-error: true
-    # - name: Create directories for reports and screenshots
-    #   run: |
-    #     sudo mkdir -p ./playwright-report
-    #     sudo mkdir -p ./screenshots
-    #     sudo chmod -R 777 ./playwright-report
-    #     sudo chmod -R 777 ./screenshots
-    # - name: Copy Playwright Screenshots from Docker container
-    #   run: sudo docker cp pw-pet:/app/all-snapshots ./screenshots
-    #   continue-on-error: true
-    # - name: Copy Playwright Report from Docker container
-    #   run: sudo docker cp pw-pet:/app/playwright-report ./playwright-report
-    #   continue-on-error: true
+    - name: Copy Playwright Screenshots from Docker container
+      run: sudo docker cp pw-pet:/app/all-snapshots ./screenshots
+      continue-on-error: true
     - name: Upload Playwright Screenshots
       uses: actions/upload-artifact@v4
       with:
