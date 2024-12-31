@@ -66,9 +66,9 @@ jobs:
     #     sudo mkdir -p ./screenshots
     #     sudo chmod -R 777 ./playwright-report
     #     sudo chmod -R 777 ./screenshots
-    - name: Copy Playwright Screenshots from Docker container
-      run: sudo docker cp pw-pet:/app/all-snapshots ./screenshots
-      continue-on-error: true
+    # - name: Copy Playwright Screenshots from Docker container
+    #   run: sudo docker cp pw-pet:/app/all-snapshots ./screenshots
+    #   continue-on-error: true
     # - name: Copy Playwright Report from Docker container
     #   run: sudo docker cp pw-pet:/app/playwright-report ./playwright-report
     #   continue-on-error: true
